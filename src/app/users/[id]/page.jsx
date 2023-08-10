@@ -1,5 +1,7 @@
 const getUsers = async (id) => {
-  const res = await fetch(`https://reqres.in/api/users/${id}`)
+  const res = await fetch(`https://reqres.in/api/users/${id}`, {
+    cache: 'no-store'
+  })
   const { data } = await res.json()
   return data
 }
