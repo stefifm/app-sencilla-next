@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,9 +12,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
+      <head>
+        <link
+          rel='stylesheet'
+          href='https://bootswatch.com/5/flatly/bootstrap.min.css'
+        />
+      </head>
       <body className={inter.className}>
         <Navbar />
-        {children}
+        <div className='container p-4'>{children}</div>
+        <Script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js'></Script>
+        <Script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js'></Script>
       </body>
     </html>
   )
